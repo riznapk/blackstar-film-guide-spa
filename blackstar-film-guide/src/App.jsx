@@ -1,7 +1,7 @@
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
-import FilmGuide from "./filmGuide/FilmGuide";
 import "./styles/main.scss";
+import FilmGuide from "./pages/FilmGuide/FilmGuide";
 
 function App() {
   // const theme = createTheme({
