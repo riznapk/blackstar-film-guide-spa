@@ -1,11 +1,12 @@
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
-import Film from "./Film";
 import "./Films.scss";
 import { getFilmData } from "../../../services/filmDetailsService";
 import { useDispatch, useSelector } from "react-redux";
 import { setFilmList } from "../../../store/filmListSlice";
 import Loader from "../../../components/loader/Loader";
+import { extractTrailerUrl } from "../../../utils/utils";
+import Film from "./Film";
 
 function Films() {
   const location = useLocation();
@@ -50,6 +51,8 @@ function Films() {
           );
           const coverImage = filmItem?.acf?.cover_image;
           const accessibility = filmItem?.accessibility;
+          const trailer = filmItem?.acf?.trailer;
+          const trailerUrl = extractTrailerUrl(trailer, filmItem?.acf?.trailer);
 
           return (
             <Film
@@ -60,6 +63,8 @@ function Films() {
               director={director?.name}
               runtime={filmItem?.acf?.runtime}
               accessibility={accessibility}
+              trailer={trailer}
+              trailerUrl={trailerUrl}
             />
           );
         })

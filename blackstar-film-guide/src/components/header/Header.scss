@@ -19,6 +19,10 @@ $left-padding: 80px;
     color: $text-color;
     padding: $top-bottom-padding 0;
     padding-left: $left-padding;
+
+    @media (max-width: 768px) {
+      padding-left: 20px; // Fixed typo and simplified
+    }
   }
 
   h1 {

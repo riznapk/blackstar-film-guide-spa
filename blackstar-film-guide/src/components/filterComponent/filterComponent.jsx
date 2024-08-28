@@ -6,6 +6,7 @@ import SelectField from "../select/Select";
 import Accordion from "../accordian/Accordion";
 import { getFilmData } from "../../services/filmDetailsService";
 import { useDispatch } from "react-redux";
+import SearchIcon from "@mui/icons-material/Search";
 import { useNavigate, useLocation } from "react-router-dom";
 import {
   addFilmDetailsToList,
@@ -13,6 +14,7 @@ import {
 } from "../../store/filmListSlice";
 import closeIcon from "../../assets/images/close-button.png";
 import Loader from "../loader/Loader";
+import { Tooltip } from "@mui/material";
 
 function FilterComponent() {
   const dispatch = useDispatch();
@@ -85,8 +87,13 @@ function FilterComponent() {
           <div className="filter-header">
             <div className="filter-title">Films A-Z</div>
             <div className="filter-icon" onClick={toggleAccordion}>
-              {/* {isAccordionOpen ? "✕" : "☰"} */}
-              <img src={filterIcon} className="close-icon" alt="Filter Icon" />
+              <Tooltip title="Filter" placement="top" arrow>
+                <img
+                  src={filterIcon}
+                  className="close-icon"
+                  alt="Filter Icon"
+                />
+              </Tooltip>
             </div>
           </div>
           {isAccordionOpen && (
@@ -127,7 +134,7 @@ function FilterComponent() {
                 />
               </div>
 
-              {/* All other dropdown options are disabled */}
+              {/* All other accordians are disabled */}
               <div className="filter-option">
                 <Accordion
                   label="Award Nomination"
@@ -146,9 +153,9 @@ function FilterComponent() {
               </div>
 
               {/* Search Bar */}
-              <div className="filter-option">
-                <label>Search</label>
-                <input type="text" placeholder="Search..." />
+              <div className="search-option">
+                <input type="text" placeholder="Search for..." />
+                <SearchIcon />
               </div>
             </div>
           )}

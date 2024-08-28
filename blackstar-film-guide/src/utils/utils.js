@@ -22,12 +22,16 @@ export const iconMappings = {
 
 export const backgroundColors = ["#ffcccc", "#FF6222", "#ccccff", "#fff0cc"];
 
-//to fetch available categories in the data and their corresponding eventive-tags
-// export const getCategoryList = (data) => {
-//   const tagList = [];
+export function extractTrailerUrl(trailer, trailerHtml) {
+  if (trailer) {
+    const match = trailerHtml.match(/src="([^"]*)"/);
+    return match ? match[1] : null;
+  } else return "";
+}
 
-//   data.map((dataItem)=>{
-// if(dataItem?.)
-//   })
-
-// };
+export const extractIframeHtml = (html) => {
+  const tempDiv = document.createElement("div");
+  tempDiv.innerHTML = html;
+  const iframe = tempDiv.querySelector("iframe");
+  return iframe ? iframe.outerHTML : "";
+};

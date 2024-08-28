@@ -1,11 +1,15 @@
 import { useState } from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
-import "./TabsComponent.css";
+import "./TabsComponent.scss";
 import FilmGuide from "../../pages/FilmGuide/FilmGuide";
 import { backgroundColors } from "../../utils/utils";
+import { useMediaQuery } from "react-responsive";
 
 function TabsComponent() {
   const [activeIndex, setActiveIndex] = useState(1);
+
+  //for desktop view only
+  const isDesktop = useMediaQuery({ minWidth: 768 });
 
   return (
     <div className="tab-container">
@@ -13,19 +17,21 @@ function TabsComponent() {
         selectedIndex={activeIndex}
         onSelect={(index) => setActiveIndex(index)}
       >
-        <TabList>
-          <Tab>Schedule</Tab>
-          <Tab
-            style={{
-              backgroundColor:
-                activeIndex === 1 ? backgroundColors[1] : "#f0f0f0",
-            }}
-          >
-            Film Guide
-          </Tab>
-          <Tab>Event Guide</Tab>
-          <Tab>My Schedule</Tab>
-        </TabList>
+        {isDesktop && (
+          <TabList>
+            <Tab>Schedule</Tab>
+            <Tab
+              style={{
+                backgroundColor:
+                  activeIndex === 1 ? backgroundColors[1] : "#f0f0f0",
+              }}
+            >
+              Film Guide
+            </Tab>
+            <Tab>Event Guide</Tab>
+            <Tab>My Schedule</Tab>
+          </TabList>
+        )}
         <TabPanel>
           <div></div>
         </TabPanel>

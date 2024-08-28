@@ -1,12 +1,8 @@
 .filter-component {
     width: 100%;
-    border-bottom: 1px solid #000;
+    // border-bottom: 1px solid #000;
     overflow: hidden;
-    border-radius: 0 0 40px 40pxcar;
-
-    @media (max-width: 768px) {
-        padding: 30px 10px;
-    }
+    border-radius: 0 0 40px 40px;
 
     .filter-header {
         display: flex;
@@ -16,9 +12,20 @@
         .filter-title {
             font-size: 72px;
         }
-
         .filter-icon {
             cursor: pointer;
+        }
+
+        @media (max-width: 767px) {
+            padding: 50px 10px;
+            .filter-title {
+                font-size: 32px;
+            }
+            .filter-icon {
+                cursor: pointer;
+                height: 45px;
+                width: 45px;
+            }
         }
     }
 
@@ -59,6 +66,19 @@
                 font-weight: bold;
             }
         }
+
+        .search-option {
+            display: flex;
+            flex: 1 1 calc(50% - 20px);
+            box-sizing: border-box;
+            align-items: flex-start;
+            padding: 20px 0;
+            width: 100%;
+            justify-content: space-between;
+        }
+        .search-icon {
+            cursor: pointer;
+        }
     }
 }
 
@@ -66,33 +86,42 @@
     display: flex;
     align-items: center;
     margin: 20px 0;
+
     input[type="checkbox"] {
         appearance: none;
         background-color: transparent;
         border: 1px solid #000;
-        width: 20px;
-        height: 20px;
+        width: 15px;
+        height: 15px;
         margin-right: 10px;
         cursor: pointer;
+        border-radius: 50%;
+        position: relative;
+        transition:
+            background-color 0.3s ease,
+            border-color 0.3s ease;
 
         &:checked {
-            background-color: #000;
-            border: 1px solid #000;
-            position: relative;
+            background-color: transparent;
+            border-color: black;
 
             &::after {
-                // content: "";
-                // position: absolute;
-                // top: 4px;
-                // left: 4px;
-                // width: 12px;
-                // height: 12px;
-                background-color: #000;
+                content: "";
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 8px;
+                height: 8px;
+                border-radius: 50%;
+                background-color: #000; // Black inner circle
             }
         }
     }
 
     label {
         margin: 0;
+        font-size: 14px;
+        font-weight: bold;
     }
 }
