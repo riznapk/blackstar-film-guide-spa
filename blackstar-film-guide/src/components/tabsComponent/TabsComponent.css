@@ -1,0 +1,84 @@
+.tab-container{
+  padding-top: 100px;
+}
+
+.react-tabs {
+    font-family: 'Arial', sans-serif;
+   
+  }
+  
+  .react-tabs__tab-list {
+    display: flex;
+    padding-left: 40px;
+
+    margin-bottom: 0;
+    max-width: 60vw;
+  
+  }
+  
+  .react-tabs__tab {
+    height:80px;
+    /* display: inline-block;
+    list-style: none; */
+    /* padding: 10px 20px; */
+    /* cursor: pointer;
+    border: 1px solid transparent;
+    border-bottom: none; */
+    /* margin-bottom: -2px; */
+    /* flex-grow: 1;
+    text-align: center; */
+
+
+  font-size: 2rem;
+  font-weight: 400 !important;
+  display: inline-block;
+  list-style: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border: 1px solid #000000;
+  /* border-bottom: none; Remove bottom border */
+  flex-grow: 1;
+  text-align: center;
+  border-radius: 40px 40px 0 0; /* Curved edges */
+  /* background-color: #f0f0f0; Default background color */
+  transition: all 0.3s ease; /* Smooth transition */
+  }
+  
+  .react-tabs__tab--selected {
+    /* background-color: #fff; */
+    /* border-color: #aaa; */
+    /* color: #333; */
+    /* border-radius: 5px 5px 0 0; */
+
+
+  
+    /* border-color: #aaa; Border color when selected */
+    height: 100px; /* Increased height when selected */
+    /* margin-bottom: -5px; */
+    color: #000000;
+    border: none;
+    margin-top: -20px; /* Adjust to control the upwards shift */
+    z-index: 1; /* Ensures the selected tab is on top */
+    /* border-bottom: 5px solid transparent; Remove bottom border */
+  }
+
+
+  .react-tabs__tab:focus {
+    /* box-shadow: 0 0 5px hsl(208, 99%, 50%); */
+    border:1px solid #000000;
+    border-color: #000000;
+    border-bottom: none;
+    outline: none;
+  }
+  
+  .react-tabs__tab:focus {
+    /* box-shadow: 0 0 5px hsl(208, 99%, 50%); */
+    /* border-color: hsl(208, 99%, 50%); */
+    /* outline: none; */
+  }
+  
+  .react-tabs__tab-panel {
+    /* padding: 16px;
+    border: 1px solid #aaa;
+    background-color: #fff; */
+  }

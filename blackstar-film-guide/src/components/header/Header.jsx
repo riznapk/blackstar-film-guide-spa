@@ -1,10 +1,11 @@
 import "./Header.scss";
+import headerLogo from "../../assets/images/header-logo.png";
 
 function Header() {
   return (
     <header className="header">
       <nav className="logo">
-        <h1>BLOCKSTAR FESTIVAL 2024</h1>
+        <img src={headerLogo} alt="Header Logo" />
       </nav>
     </header>
   );

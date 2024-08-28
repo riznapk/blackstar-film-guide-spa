@@ -1,0 +1,44 @@
+$text-color: #fff;
+$border-radius: 30px 30px 0 0;
+
+.footer {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 146px;
+    background-color: #d4caff;
+    border-radius: $border-radius;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 0 20px;
+    justify-content: space-between;
+
+    nav {
+        cursor: pointer;
+    }
+    .logo {
+        display: flex;
+        color: $text-color;
+    }
+
+    &-middle {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+    }
+
+    &-end {
+        display: flex;
+        flex-direction: row;
+        gap: 5px;
+    }
+
+    .nav {
+        cursor: pointer;
+    }
+
+    h1 {
+        font-size: 50px;
+    }
+}

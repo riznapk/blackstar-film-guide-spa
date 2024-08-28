@@ -1,0 +1,98 @@
+.filter-component {
+    width: 100%;
+    border-bottom: 1px solid #000;
+    overflow: hidden;
+    border-radius: 0 0 40px 40pxcar;
+
+    @media (max-width: 768px) {
+        padding: 30px 10px;
+    }
+
+    .filter-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 50px 40px;
+        .filter-title {
+            font-size: 72px;
+        }
+
+        .filter-icon {
+            cursor: pointer;
+        }
+    }
+
+    .filter-accordion {
+        padding: 40px 40px;
+        width: 100%;
+        background-color: #d4caff;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 40px;
+
+        .filter-header-accordion {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            p {
+                font-size: 32px;
+                font-weight: bold;
+            }
+
+            img {
+                cursor: pointer;
+            }
+        }
+
+        .filter-option {
+            flex: 1 1 calc(50% - 20px);
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 20px 0;
+
+            label {
+                font-size: 14px;
+                font-weight: bold;
+            }
+        }
+    }
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+    input[type="checkbox"] {
+        appearance: none;
+        background-color: transparent;
+        border: 1px solid #000;
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+        cursor: pointer;
+
+        &:checked {
+            background-color: #000;
+            border: 1px solid #000;
+            position: relative;
+
+            &::after {
+                // content: "";
+                // position: absolute;
+                // top: 4px;
+                // left: 4px;
+                // width: 12px;
+                // height: 12px;
+                background-color: #000;
+            }
+        }
+    }
+
+    label {
+        margin: 0;
+    }
+}

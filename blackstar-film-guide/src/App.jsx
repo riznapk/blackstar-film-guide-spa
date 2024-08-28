@@ -1,7 +1,9 @@
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-
 import "./styles/main.scss";
-import FilmGuide from "./pages/FilmGuide/FilmGuide";
+import Header from "./components/Header";
+import TabsComponent from "./components/tabsComponent/TabsComponent";
+import Footer from "./components/footer/Footer";
+import AppRouter from "./components/AppRouter";
 
 function App() {
   // const theme = createTheme({
@@ -10,9 +12,12 @@ function App() {
   //   },
   // });
   return (
-    // <ThemeProvider theme={theme}>
-    <FilmGuide />
-    // </ThemeProvider>
+    <div>
+      <Header />
+      <TabsComponent />
+      {/* <AppRouter /> */}
+      <Footer />
+    </div>
   );
 }
 

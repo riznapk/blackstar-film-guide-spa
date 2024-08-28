@@ -1,0 +1,33 @@
+.icon-wrapper {
+    display: inline-block;
+    position: relative;
+
+    .icon {
+        display: inline-block;
+        vertical-align: middle;
+        cursor: pointer;
+
+        .tooltip {
+            visibility: hidden;
+            width: 120px; // Width of the tooltip
+            background-color: #333; // Background color
+            color: #fff; // Text color
+            text-align: center; // Center the text
+            border-radius: 5px; // Rounded corners
+            padding: 5px; // Padding
+            position: absolute;
+            z-index: 1;
+            bottom: 125%; // Position above the icon
+            left: 50%;
+            transform: translateX(-50%); // Center the tooltip
+            opacity: 0; // Initial state (hidden)
+            transition: opacity 0.3s; // Fade-in effect
+            font-size: 14px; // Font size
+        }
+
+        &:hover .tooltip {
+            visibility: visible;
+            opacity: 1;
+        }
+    }
+}

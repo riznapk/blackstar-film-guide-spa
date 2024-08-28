@@ -1,5 +1,5 @@
 import Card from "../../../components/card/Card";
-function Film({ coverImage, title, tags, director, runtime }) {
+function Film({ coverImage, title, tags, director, runtime, accessibility }) {
   return (
     <Card
       coverImage={coverImage}
@@ -7,6 +7,7 @@ function Film({ coverImage, title, tags, director, runtime }) {
       tags={tags}
       director={director}
       runtime={runtime}
+      accessibility={accessibility}
     />
   );
 }

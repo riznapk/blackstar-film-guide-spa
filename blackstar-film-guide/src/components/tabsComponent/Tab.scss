@@ -1,0 +1,17 @@
+.tab-container {
+    .tab-item {
+        display: flex;
+        cursor: pointer;
+        div {
+            padding: 10px;
+            border-bottom: 2px solid transparent;
+            &.active {
+                border-bottom-color: blue;
+            }
+        }
+    }
+
+    .tab-content {
+        padding: 20px;
+    }
+}

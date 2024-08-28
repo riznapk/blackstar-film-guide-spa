@@ -3,3 +3,18 @@
     background-color: #ff6222;
     margin: 0;
 }
+
+.load-more {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0;
+
+    @media (max-width: 768px) {
+        padding: 30px 0;
+    }
+
+    @media (max-width: 480px) {
+        padding: 20px 0;
+    }
+}
