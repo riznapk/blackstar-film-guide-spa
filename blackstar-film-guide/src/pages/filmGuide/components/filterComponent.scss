@@ -1,22 +1,24 @@
 .filter-component {
     width: 100%;
-    // border-bottom: 1.5px solid #000;
     overflow: hidden;
 
     .filter-header {
         display: flex;
         justify-content: space-between;
-        border-bottom: 1.5px solid #000;
+        border-bottom: 1px solid #000;
         align-items: center;
-        padding: 50px 40px;
+        padding: 45px 40px;
         &.accordion-open {
             border-bottom: none;
         }
         .filter-title h1 {
-            font-size: 72px;
+            font-size: 3.75rem;
+            line-height: 1;
         }
         .filter-icon {
             cursor: pointer;
+            height: 3rem;
+            width: 3rem;
         }
 
         @media (max-width: 767px) {
@@ -52,11 +54,14 @@
             justify-content: space-between;
             align-items: center;
             h3 {
-                font-size: 32px;
+                font-size: 1.875rem;
+                line-height: 2.25rem;
             }
 
             img {
                 cursor: pointer;
+                height: 3rem;
+                width: 3rem;
             }
 
             @media (max-width: 767px) {
@@ -80,7 +85,8 @@
             padding: 20px 0;
 
             label {
-                font-size: 20px;
+                font-size: 1rem;
+                line-height: 1.5rem;
                 font-weight: 100;
             }
         }
@@ -93,17 +99,17 @@
 .checkbox-group {
     display: flex;
     align-items: center;
-    margin: 20px 0;
+    margin: 25px 0;
 
     input[type="checkbox"] {
         appearance: none;
         background-color: transparent;
         border: 1px solid #000;
-        width: 15px;
-        height: 15px;
-        margin-right: 10px;
-        cursor: pointer;
         border-radius: 50%;
+        width: 13px;
+        height: 13px;
+        margin-right: 13px;
+        cursor: pointer;
         position: relative;
         transition:
             background-color 0.3s ease,
@@ -129,7 +135,7 @@
 
     label {
         margin: 0;
-        font-size: 20px;
+        font-size: 1rem;
         font-weight: 100;
     }
 }

@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
 import "./FilterComponent.scss";
-import filterIcon from "../../assets/images/filter-icon.png";
-import { categoryList } from "../../utils/contasnts";
-import Accordion from "../accordion/Accordion";
-import { getFilmData } from "../../services/filmDetailsService";
+import filterIcon from "../../../assets/images/filter-icon.png";
+import { categoryList } from "../../../utils/constants";
+import Accordion from "../../../components/accordion/Accordion";
+import { getFilmData } from "../../../services/filmDetailsService";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { filterFilmDetailsByTag } from "../../store/filmListSlice";
-import closeIcon from "../../assets/images/close-button.png";
-import Loader from "../loader/Loader";
+import { filterFilmDetailsByTag } from "../../../store/filmListSlice";
+import closeIcon from "../../../assets/images/close-button.png";
+import Loader from "../../../components/loader/Loader";
 import { Tooltip } from "@mui/material";
 
 function FilterComponent({ page, setPage }) {
@@ -36,13 +36,13 @@ function FilterComponent({ page, setPage }) {
   };
 
   const getFilmFilterByCategories = async () => {
+    setIsLoading(true);
     try {
       const data = await getFilmData(18, 1, 2024, selectedCategories.join(","));
       if (data) {
         setIsLoading(false);
         dispatch(filterFilmDetailsByTag(data));
         if (selectedCategories?.length === 0) {
-          // setIsLoading(true);
           setPage(1);
           navigate("/festival/film-guide");
         } else
@@ -51,17 +51,16 @@ function FilterComponent({ page, setPage }) {
           );
       }
     } catch (err) {
-      setIsLoading(false);
       console.error(err.message);
+    } finally {
+      setIsLoading(false);
     }
   };
 
   //side effect to handle the filter selection
-  console.log("page", page);
   useEffect(() => {
     setPage(1);
     if (selectedCategories?.length >= 0) {
-      setIsLoading(true);
       getFilmFilterByCategories();
     }
   }, [selectedCategories]);
@@ -73,7 +72,6 @@ function FilterComponent({ page, setPage }) {
 
     if (eventiveTag) {
       const categories = decodeURIComponent(eventiveTag).split(",");
-      console.log("Catogory", categories);
       setSelectedCategories(categories);
     }
   }, [location.search]);
@@ -90,7 +88,7 @@ function FilterComponent({ page, setPage }) {
             }`}
           >
             <div className="filter-title">
-              <h1>Films A-Z</h1>
+              <h1>FILMS A-Z</h1>
             </div>
             <div className="filter-icon" onClick={toggleAccordion}>
               <Tooltip title="Filter" placement="top" arrow>
@@ -139,30 +137,6 @@ function FilterComponent({ page, setPage }) {
                   }
                 />
               </div>
-
-              {/* All other accordions are disabled */}
-              {/* <div className="filter-option">
-                <Accordion
-                  label="Award Nomination"
-                  name="award-nomination"
-                  defaultOpen={false}
-                  disabled
-                />
-              </div>
-              <div className="filter-option">
-                <Accordion
-                  label="Premiere Status"
-                  name="premiere-status"
-                  defaultOpen={false}
-                  disabled
-                />
-              </div> */}
-
-              {/* Search Bar */}
-              {/* <div className="search-option">
-                <input type="text" placeholder="Search for..." />
-                <SearchIcon />
-              </div> */}
             </div>
           )}
         </div>

@@ -11,7 +11,7 @@ const filmListSlice = createSlice({
       state.filmList = action.payload;
     },
     addFilmDetailsToList(state, action) {
-      state.filmList = [...state?.filmList, ...action?.payload];
+      state.filmList = [...state.filmList, ...action.payload];
     },
     filterFilmDetailsByTag(state, action) {
       state.filterFilmList = action.payload;
@@ -27,6 +27,6 @@ export const {
   setFilmList,
   addFilmDetailsToList,
   filterFilmDetailsByTag,
-  sclearFilmList,
+  clearFilmList,
 } = filmListSlice.actions;
 export default filmListSlice.reducer;

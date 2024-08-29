@@ -31,7 +31,7 @@ function Accordion({
         >
           {label}
           <span className={`accordion-icon ${isOpen ? "open" : ""}`}>
-            <ExpandMoreIcon style={{ fontSize: "60px" }} />
+            <ExpandMoreIcon style={{ fontSize: "40px" }} />
           </span>
         </div>
       )}

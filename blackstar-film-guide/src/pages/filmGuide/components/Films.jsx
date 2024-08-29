@@ -15,10 +15,8 @@ function Films() {
   const [isLoading, setIsLoading] = useState(false);
   const filmListDetails = useSelector((state) => state?.filmList?.filmList);
 
-  console.log("filmListDetails", filmListDetails);
-
   const getFilmDetails = async (eventiveTag = null) => {
-    console.log("am i called here");
+    setIsLoading(true);
     try {
       const data = await getFilmData(18, 1, 2024, eventiveTag);
       if (data) {
@@ -28,17 +26,16 @@ function Films() {
       }
     } catch (err) {
       console.error(err.message);
+    } finally {
       setIsLoading(false);
     }
   };
 
   useEffect(() => {
     if (!filmListDetails.length) {
-      console.log("-------------------------------------");
       const queryParams = new URLSearchParams(location.search);
       const eventiveTag = queryParams.get("eventive-tag");
       getFilmDetails(eventiveTag);
-      setIsLoading(true);
     }
   }, [location.search]);
 

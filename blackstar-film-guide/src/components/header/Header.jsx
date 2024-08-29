@@ -1,5 +1,5 @@
 import "./Header.scss";
-import headerLogo from "../../assets/images/header-logo.png";
+import headerLogo from "../../assets/images/headerlogo.svg";
 import { Link } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
 import headerMobileLogo from "../../assets/images/header-mobile-logo.png";

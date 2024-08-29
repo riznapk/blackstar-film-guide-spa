@@ -7,7 +7,7 @@ $left-padding: 60px;
   display: flex;
   align-items: center;
   width: 100%;
-  height: 146px;
+  height: 85px;
   background-color: #000000;
   border-radius: $border-radius;
   position: sticky;
@@ -17,6 +17,7 @@ $left-padding: 60px;
   .logo {
     display: flex;
     color: $text-color;
+    // height: 40px;
     padding: $top-bottom-padding 0;
     padding-left: $left-padding;
 

@@ -9,11 +9,11 @@
     .accordion-header {
         display: flex;
         justify-content: space-between;
-        border-bottom: 1.5px solid #000;
+        border-bottom: 1px solid #000;
         align-items: center;
         cursor: pointer;
-        font-size: 20px;
-        // font-weight: bold;
+        font-size: 1 rem;
+        font-weight: 400;
 
         &.disabled {
             cursor: not-allowed;
@@ -23,7 +23,7 @@
 
     .accordion-icon {
         transition: transform 0.3s ease;
-        font-size: 20px;
+        font-size: 1rem;
 
         &.open {
             transform: rotate(180deg);
@@ -33,7 +33,7 @@
     .accordion-content {
         display: none;
         overflow: hidden;
-        border-bottom: 1.5px solid #000;
+        border-bottom: 1px solid #000;
 
         &.open {
             display: block;

@@ -5,7 +5,7 @@ import { getFilmData } from "../../services/filmDetailsService";
 import { useDispatch, useSelector } from "react-redux";
 import { addFilmDetailsToList } from "../../store/filmListSlice";
 import { useEffect, useState } from "react";
-import FilterComponent from "../../components/filterComponent/filterComponent";
+import FilterComponent from "./components/FilterComponent";
 import Loader from "../../components/loader/Loader";
 import { useLocation } from "react-router-dom";
 
@@ -27,19 +27,15 @@ function FilmGuide() {
 
   const getNextPageFilmData = async (pageNumber) => {
     try {
-      console.log("hi from next page");
-      console.log("evengtivetag", eventiveTag, pageNumber);
       const data = await getFilmData(18, pageNumber, 2024, eventiveTag);
-      console.log("eventivetag nextpage", eventiveTag);
       if (data) {
         setIsLoading(false);
-        // setFilmDataReceived(data);
-        console.log("LENGTH", data?.length);
         dispatch(addFilmDetailsToList(data));
       }
     } catch (err) {
-      setIsLoading(false);
       console.error(err.message);
+    } finally {
+      setIsLoading(false);
     }
   };
 
