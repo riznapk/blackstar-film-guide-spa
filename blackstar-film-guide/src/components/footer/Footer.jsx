@@ -12,7 +12,7 @@ function Footer() {
       <div className="footer-middle">
         <p>© 2024 All Rights Reserved</p>
         <Link to="/">
-          <p>Accessibility</p>
+          <p>Terms</p>
         </Link>
         <Link to="/">
           <p>Privacy Policy</p>
@@ -20,7 +20,7 @@ function Footer() {
       </div>
       <Link to="https://theunloved.co.uk/">
         <div className="footer-end">
-          Made with love by the unloved{" "}
+          <p> Made with love by the unloved</p>
           <span>
             <img src={unlovedLogo} alt="unloved-logo" />
           </span>

@@ -1,0 +1,27 @@
+// Layout.scss
+
+.layout-container {
+    position: relative;
+    min-height: 100vh; /* Ensure the container takes up the full viewport height */
+}
+
+.main-content {
+    padding-top: 100px; /* Space for the header */
+    padding-bottom: 100px; /* Space for the footer */
+}
+
+header {
+    position: fixed; /* Fixed or absolute positioning to overlay */
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10; /* Ensure it’s above other content */
+}
+
+footer {
+    position: fixed; /* Fixed or absolute positioning to overlay */
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 10; /* Ensure it’s above other content */
+}

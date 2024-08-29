@@ -54,11 +54,13 @@ function FilmGuide() {
     <>
       <div className="container">
         {isLoading && <Loader />}
-        <FilterComponent page={page} />
+        <FilterComponent page={page} setPage={setPage} />
         <Films />
-        <div className="load-more">
-          <Button buttonOnClick={handleClick} buttonText="Load more" />
-        </div>
+        {filmDetailsList?.length % 18 === 0 && (
+          <div className="load-more">
+            <Button buttonOnClick={handleClick} buttonText="Load more" />
+          </div>
+        )}
       </div>
     </>
   );

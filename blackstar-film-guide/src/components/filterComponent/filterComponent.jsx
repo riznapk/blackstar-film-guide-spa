@@ -11,7 +11,7 @@ import closeIcon from "../../assets/images/close-button.png";
 import Loader from "../loader/Loader";
 import { Tooltip } from "@mui/material";
 
-function FilterComponent({ page }) {
+function FilterComponent({ page, setPage }) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
@@ -41,8 +41,9 @@ function FilterComponent({ page }) {
       if (data) {
         setIsLoading(false);
         dispatch(filterFilmDetailsByTag(data));
-        if (selectedCategories.length === 0 && page === 1) {
+        if (selectedCategories?.length === 0) {
           // setIsLoading(true);
+          setPage(1);
           navigate("/festival/film-guide");
         } else
           navigate(
@@ -56,8 +57,10 @@ function FilterComponent({ page }) {
   };
 
   //side effect to handle the filter selection
+  console.log("page", page);
   useEffect(() => {
-    if (selectedCategories.length >= 0 && page === 1) {
+    setPage(1);
+    if (selectedCategories?.length >= 0) {
       setIsLoading(true);
       getFilmFilterByCategories();
     }
