@@ -44,8 +44,6 @@ function FilmGuide() {
     setEventiveTag(queryParams.get("eventive-tag"));
   }, [location.search]);
 
-  //for setting the data length
-
   return (
     <>
       <div className="container">

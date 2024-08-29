@@ -10,7 +10,7 @@ import Film from "./Film";
 
 function Films() {
   const location = useLocation();
-  const [filmData, setAllFilmData] = useState([]);
+
   const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState(false);
   const filmListDetails = useSelector((state) => state?.filmList?.filmList);
@@ -21,7 +21,6 @@ function Films() {
       const data = await getFilmData(18, 1, 2024, eventiveTag);
       if (data) {
         setIsLoading(false);
-        setAllFilmData(data);
         dispatch(setFilmList(data));
       }
     } catch (err) {

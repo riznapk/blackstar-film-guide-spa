@@ -1,4 +1,3 @@
-import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import TabsComponent from "../tabsComponent/TabsComponent";
 import Layout from "./Layout";

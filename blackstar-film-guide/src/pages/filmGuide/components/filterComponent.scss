@@ -21,7 +21,7 @@
             width: 3rem;
         }
 
-        @media (max-width: 767px) {
+        @media (max-width: 768px) {
             padding: 50px 15px;
             .filter-title h1 {
                 font-size: 32px;
@@ -44,7 +44,7 @@
         border: none;
         gap: 20px;
 
-        @media (max-width: 767px) {
+        @media (max-width: 768px) {
             padding: 40px 15px;
         }
 
@@ -64,7 +64,7 @@
                 width: 3rem;
             }
 
-            @media (max-width: 767px) {
+            @media (max-width: 768px) {
                 p {
                     font-size: 24px;
                 }
@@ -90,26 +90,30 @@
                 font-weight: 100;
             }
         }
-        @media (max-width: 767px) {
+        @media (max-width: 768px) {
             flex: 1 1 100%;
         }
     }
 }
 
+.filter-options {
+    padding: 15px 0;
+}
+
 .checkbox-group {
     display: flex;
     align-items: center;
-    margin: 25px 0;
+    margin: 10px 0;
 
     input[type="checkbox"] {
         appearance: none;
+        cursor: pointer;
         background-color: transparent;
         border: 1px solid #000;
         border-radius: 50%;
         width: 13px;
         height: 13px;
         margin-right: 13px;
-        cursor: pointer;
         position: relative;
         transition:
             background-color 0.3s ease,
@@ -128,7 +132,7 @@
                 width: 8px;
                 height: 8px;
                 border-radius: 50%;
-                background-color: #000; // Black inner circle
+                background-color: #000;
             }
         }
     }
@@ -137,5 +141,12 @@
         margin: 0;
         font-size: 1rem;
         font-weight: 100;
+    }
+
+    &:hover {
+        input,
+        label {
+            cursor: pointer;
+        }
     }
 }

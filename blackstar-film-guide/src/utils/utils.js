@@ -20,18 +20,13 @@ export const iconMappings = {
   },
 };
 
+//For tab selection and its corresponding bg color
 export const backgroundColors = ["#ffcccc", "#FF6222", "#ccccff", "#fff0cc"];
 
+//To extract the trailer url
 export function extractTrailerUrl(trailer, trailerHtml) {
   if (trailer) {
     const match = trailerHtml.match(/src="([^"]*)"/);
     return match ? match[1] : null;
   } else return "";
 }
-
-export const extractIframeHtml = (html) => {
-  const tempDiv = document.createElement("div");
-  tempDiv.innerHTML = html;
-  const iframe = tempDiv.querySelector("iframe");
-  return iframe ? iframe.outerHTML : "";
-};

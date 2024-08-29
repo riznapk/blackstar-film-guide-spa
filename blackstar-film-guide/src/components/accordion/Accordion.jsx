@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import PropTypes from "prop-types";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import "./Accordion.scss";
 
@@ -45,5 +46,15 @@ function Accordion({
     </div>
   );
 }
+
+Accordion.propTypes = {
+  label: PropTypes.string,
+  showLabel: PropTypes.bool,
+  name: PropTypes.string,
+  content: PropTypes.node,
+  defaultOpen: PropTypes.bool,
+  disabled: PropTypes.bool,
+  className: PropTypes.string,
+};
 
 export default Accordion;

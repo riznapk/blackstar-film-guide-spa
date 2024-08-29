@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "./TabsComponent.scss";
-import FilmGuide from "../../pages/FilmGuide/FilmGuide";
+import FilmGuide from "../../pages/filmGuide/FilmGuide";
 import { backgroundColors } from "../../utils/utils";
 import { useMediaQuery } from "react-responsive";
 import UnderConstruction from "../underConstruction/underConstruction";

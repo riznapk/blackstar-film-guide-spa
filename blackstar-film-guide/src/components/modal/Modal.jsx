@@ -1,6 +1,6 @@
-import React from "react";
-import "./Modal.scss";
+import PropTypes from "prop-types";
 import CancelIcon from "@mui/icons-material/Cancel";
+import "./Modal.scss";
 
 function Modal({ isOpen, onClose, children }) {
   if (!isOpen) return null;
@@ -22,5 +22,11 @@ function Modal({ isOpen, onClose, children }) {
     </div>
   );
 }
+
+Modal.propTypes = {
+  isOpen: PropTypes.bool.isRequired,
+  onClose: PropTypes.func.isRequired,
+  children: PropTypes.node.isRequired,
+};
 
 export default Modal;
