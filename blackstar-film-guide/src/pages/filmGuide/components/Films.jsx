@@ -18,6 +18,7 @@ function Films() {
   console.log("filmListDetails", filmListDetails);
 
   const getFilmDetails = async (eventiveTag = null) => {
+    console.log("am i called here");
     try {
       const data = await getFilmData(18, 1, 2024, eventiveTag);
       if (data) {
@@ -33,6 +34,7 @@ function Films() {
 
   useEffect(() => {
     if (!filmListDetails.length) {
+      console.log("-------------------------------------");
       const queryParams = new URLSearchParams(location.search);
       const eventiveTag = queryParams.get("eventive-tag");
       getFilmDetails(eventiveTag);

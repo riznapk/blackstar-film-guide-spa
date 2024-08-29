@@ -1,14 +1,12 @@
 .tab-container {
   padding-top: 100px;
-
+  // background-color: #f0eae4;
   @media (max-width: 767px) {
     padding-top: 0;
   }
 }
 
 .react-tabs {
-  font-family: "Arial", sans-serif;
-
   &__tab-list {
     display: flex;
     padding-left: 40px;
@@ -19,7 +17,7 @@
   &__tab {
     height: 80px;
     font-size: 2rem;
-    font-weight: 400 !important;
+    font-weight: 100 !important;
     display: inline-block;
     list-style: none;
     padding: 10px 20px;

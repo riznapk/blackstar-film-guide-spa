@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "./TabsComponent.scss";
 import FilmGuide from "../../pages/FilmGuide/FilmGuide";
@@ -11,12 +11,14 @@ function TabsComponent() {
   //for desktop view only
   const isDesktop = useMediaQuery({ minWidth: 768 });
 
+  // Handle tab change
+  const handleTabChange = (index) => {
+    setActiveIndex(index);
+  };
+
   return (
     <div className="tab-container">
-      <Tabs
-        selectedIndex={activeIndex}
-        onSelect={(index) => setActiveIndex(index)}
-      >
+      <Tabs selectedIndex={activeIndex} onSelect={handleTabChange}>
         {isDesktop && (
           <TabList>
             <Tab>Schedule</Tab>
@@ -36,7 +38,12 @@ function TabsComponent() {
           <div></div>
         </TabPanel>
         <TabPanel>
-          <div>
+          <div
+            style={{
+              backgroundColor:
+                activeIndex === 1 ? "backgroundColors[1]" : "#ffffff",
+            }}
+          >
             <FilmGuide />
           </div>
         </TabPanel>

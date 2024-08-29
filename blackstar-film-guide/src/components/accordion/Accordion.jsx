@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ExpandLessIcon from "@mui/icons-material/ExpandLess";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import "./Accordion.scss";
 
 function Accordion({
@@ -31,7 +31,7 @@ function Accordion({
         >
           {label}
           <span className={`accordion-icon ${isOpen ? "open" : ""}`}>
-            <ExpandLessIcon />
+            <ExpandMoreIcon style={{ fontSize: "60px" }} />
           </span>
         </div>
       )}

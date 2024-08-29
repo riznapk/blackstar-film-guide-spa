@@ -2,7 +2,7 @@
     border: 1.5px solid #000000;
     border-radius: 15px;
     box-shadow: none;
-    margin: 5px;
+    // margin: 5px;
     overflow: hidden;
     padding: 15px;
     width: 100%;
@@ -11,18 +11,19 @@
     flex-direction: column;
 
     &-header,
-    &-body,
     &-accessibility-icons &-footer {
         padding-left: 10px;
         padding-right: 10px;
     }
 
-    &-header h1 {
+    &-header h2 {
         font-size: 2rem;
+        font-weight: 300;
     }
 
     &-body {
         flex: 1;
+        padding: 20px 10px;
     }
 
     &-cover-image {
@@ -72,8 +73,9 @@
     }
 
     @media (max-width: 768px) {
-        .card-header h1 {
+        .card-header h2 {
             font-size: 1.4rem;
+            font-weight: 300;
         }
     }
 

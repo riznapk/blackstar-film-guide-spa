@@ -1,7 +1,7 @@
 import Button from "../../../components/button/Button";
 import Icon from "../../../components/icon/Icon";
 import "./Film.scss";
-import { extractIframeHtml, iconMappings } from "../../../utils/utils";
+import { iconMappings } from "../../../utils/utils";
 import { useState } from "react";
 import Modal from "../../../components/modal/Modal";
 
@@ -54,7 +54,7 @@ function Film(props) {
       </div>
 
       <div className="card-header">
-        <h1>{title}</h1>
+        <h2>{title}</h2>
       </div>
 
       <div className="card-body">

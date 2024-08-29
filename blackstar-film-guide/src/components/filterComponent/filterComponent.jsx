@@ -2,21 +2,16 @@ import { useEffect, useState } from "react";
 import "./FilterComponent.scss";
 import filterIcon from "../../assets/images/filter-icon.png";
 import { categoryList } from "../../utils/contasnts";
-import SelectField from "../select/Select";
-import Accordion from "../accordian/Accordion";
+import Accordion from "../accordion/Accordion";
 import { getFilmData } from "../../services/filmDetailsService";
 import { useDispatch } from "react-redux";
-import SearchIcon from "@mui/icons-material/Search";
-import { useNavigate, useLocation } from "react-router-dom";
-import {
-  addFilmDetailsToList,
-  filterFilmDetailsByTag,
-} from "../../store/filmListSlice";
+import { useNavigate } from "react-router-dom";
+import { filterFilmDetailsByTag } from "../../store/filmListSlice";
 import closeIcon from "../../assets/images/close-button.png";
 import Loader from "../loader/Loader";
 import { Tooltip } from "@mui/material";
 
-function FilterComponent() {
+function FilterComponent({ page }) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
@@ -25,7 +20,7 @@ function FilterComponent() {
 
   //toggle accordion open/close
   const toggleAccordion = () => {
-    setAccordionOpen((prevAccordianState) => !prevAccordianState);
+    setAccordionOpen((prevAccordionState) => !prevAccordionState);
   };
 
   //handle checkbox selection
@@ -43,14 +38,16 @@ function FilterComponent() {
   const getFilmFilterByCategories = async () => {
     try {
       const data = await getFilmData(18, 1, 2024, selectedCategories.join(","));
-
       if (data) {
         setIsLoading(false);
         dispatch(filterFilmDetailsByTag(data));
-
-        navigate(
-          `/festival/film-guide/?eventive-tag=${selectedCategories.join(",")}`
-        );
+        if (selectedCategories.length === 0 && page === 1) {
+          // setIsLoading(true);
+          navigate("/festival/film-guide");
+        } else
+          navigate(
+            `/festival/film-guide/?eventive-tag=${selectedCategories.join(",")}`
+          );
       }
     } catch (err) {
       setIsLoading(false);
@@ -60,7 +57,7 @@ function FilterComponent() {
 
   //side effect to handle the filter selection
   useEffect(() => {
-    if (selectedCategories.length > 0) {
+    if (selectedCategories.length >= 0 && page === 1) {
       setIsLoading(true);
       getFilmFilterByCategories();
     }
@@ -84,8 +81,14 @@ function FilterComponent() {
         <Loader />
       ) : (
         <div className="filter-component">
-          <div className="filter-header">
-            <div className="filter-title">Films A-Z</div>
+          <div
+            className={`filter-header ${
+              isAccordionOpen ? "accordion-open" : ""
+            }`}
+          >
+            <div className="filter-title">
+              <h1>Films A-Z</h1>
+            </div>
             <div className="filter-icon" onClick={toggleAccordion}>
               <Tooltip title="Filter" placement="top" arrow>
                 <img
@@ -99,7 +102,7 @@ function FilterComponent() {
           {isAccordionOpen && (
             <div className="filter-accordion">
               <div className="filter-header-accordion">
-                <p>Filter By</p>
+                <h3>Filter by</h3>
                 <img
                   src={closeIcon}
                   alt="Close Icon"
@@ -134,8 +137,8 @@ function FilterComponent() {
                 />
               </div>
 
-              {/* All other accordians are disabled */}
-              <div className="filter-option">
+              {/* All other accordions are disabled */}
+              {/* <div className="filter-option">
                 <Accordion
                   label="Award Nomination"
                   name="award-nomination"
@@ -150,13 +153,13 @@ function FilterComponent() {
                   defaultOpen={false}
                   disabled
                 />
-              </div>
+              </div> */}
 
               {/* Search Bar */}
-              <div className="search-option">
+              {/* <div className="search-option">
                 <input type="text" placeholder="Search for..." />
                 <SearchIcon />
-              </div>
+              </div> */}
             </div>
           )}
         </div>

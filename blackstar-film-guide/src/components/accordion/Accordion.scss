@@ -1,6 +1,10 @@
 .accordion {
-    width: 100%;
+    width: 50%;
     overflow: hidden;
+
+    @media (max-width: 767px) {
+        width: 100%;
+    }
 
     .accordion-header {
         display: flex;
@@ -8,7 +12,8 @@
         border-bottom: 1.5px solid #000;
         align-items: center;
         cursor: pointer;
-        font-weight: bold;
+        font-size: 20px;
+        // font-weight: bold;
 
         &.disabled {
             cursor: not-allowed;
@@ -18,10 +23,10 @@
 
     .accordion-icon {
         transition: transform 0.3s ease;
-        font-size: 16px;
+        font-size: 20px;
 
         &.open {
-            transform: rotate(90deg);
+            transform: rotate(180deg);
         }
     }
 

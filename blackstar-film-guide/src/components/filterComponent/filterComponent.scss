@@ -1,15 +1,18 @@
 .filter-component {
     width: 100%;
-    // border-bottom: 1px solid #000;
+    // border-bottom: 1.5px solid #000;
     overflow: hidden;
-    border-radius: 0 0 40px 40px;
 
     .filter-header {
         display: flex;
         justify-content: space-between;
+        border-bottom: 1.5px solid #000;
         align-items: center;
         padding: 50px 40px;
-        .filter-title {
+        &.accordion-open {
+            border-bottom: none;
+        }
+        .filter-title h1 {
             font-size: 72px;
         }
         .filter-icon {
@@ -17,8 +20,8 @@
         }
 
         @media (max-width: 767px) {
-            padding: 50px 10px;
-            .filter-title {
+            padding: 50px 15px;
+            .filter-title h1 {
                 font-size: 32px;
             }
             .filter-icon {
@@ -35,49 +38,54 @@
         background-color: #d4caff;
         display: flex;
         flex-wrap: wrap;
-        gap: 40px;
+        border-radius: 0 0 40px 40px;
+        border: none;
+        gap: 20px;
+
+        @media (max-width: 767px) {
+            padding: 40px 15px;
+        }
 
         .filter-header-accordion {
             width: 100%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 20px;
-            p {
+            h3 {
                 font-size: 32px;
-                font-weight: bold;
             }
 
             img {
                 cursor: pointer;
             }
-        }
 
-        .filter-option {
-            flex: 1 1 calc(50% - 20px);
-            box-sizing: border-box;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            padding: 20px 0;
-
-            label {
-                font-size: 14px;
-                font-weight: bold;
+            @media (max-width: 767px) {
+                p {
+                    font-size: 24px;
+                }
+                img {
+                    cursor: pointer;
+                    height: 30px;
+                    width: 30px;
+                }
             }
         }
 
-        .search-option {
+        .filter-option {
             display: flex;
-            flex: 1 1 calc(50% - 20px);
-            box-sizing: border-box;
+            flex: 1 1 50%;
+            flex-direction: column;
             align-items: flex-start;
+            box-sizing: border-box;
             padding: 20px 0;
-            width: 100%;
-            justify-content: space-between;
+
+            label {
+                font-size: 20px;
+                font-weight: 100;
+            }
         }
-        .search-icon {
-            cursor: pointer;
+        @media (max-width: 767px) {
+            flex: 1 1 100%;
         }
     }
 }
@@ -121,7 +129,7 @@
 
     label {
         margin: 0;
-        font-size: 14px;
-        font-weight: bold;
+        font-size: 20px;
+        font-weight: 100;
     }
 }

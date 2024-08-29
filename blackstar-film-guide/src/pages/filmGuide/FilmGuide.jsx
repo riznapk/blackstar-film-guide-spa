@@ -1,11 +1,8 @@
-import Header from "../../components/Header";
 import Films from "./components";
-
 import "./FilmGuide.scss";
-import TabsComponent from "../../components/tabsComponent/TabsComponent";
 import Button from "../../components/button/Button";
 import { getFilmData } from "../../services/filmDetailsService";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addFilmDetailsToList } from "../../store/filmListSlice";
 import { useEffect, useState } from "react";
 import FilterComponent from "../../components/filterComponent/filterComponent";
@@ -15,9 +12,11 @@ import { useLocation } from "react-router-dom";
 function FilmGuide() {
   const dispatch = useDispatch();
   const location = useLocation();
+  const filmDetailsList = useSelector((state) => state?.filmList?.filmList);
   const [page, setPage] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
   const [eventiveTag, setEventiveTag] = useState(null);
+  const [filmDataLength, setFilmDataLength] = useState(0);
 
   const handleClick = () => {
     const newPage = page + 1;
@@ -29,10 +28,13 @@ function FilmGuide() {
   const getNextPageFilmData = async (pageNumber) => {
     try {
       console.log("hi from next page");
+      console.log("evengtivetag", eventiveTag, pageNumber);
       const data = await getFilmData(18, pageNumber, 2024, eventiveTag);
       console.log("eventivetag nextpage", eventiveTag);
       if (data) {
         setIsLoading(false);
+        // setFilmDataReceived(data);
+        console.log("LENGTH", data?.length);
         dispatch(addFilmDetailsToList(data));
       }
     } catch (err) {
@@ -46,19 +48,18 @@ function FilmGuide() {
     setEventiveTag(queryParams.get("eventive-tag"));
   }, [location.search]);
 
+  //for setting the data length
+
   return (
     <>
-      {isLoading ? (
-        <Loader />
-      ) : (
-        <div className="container">
-          <FilterComponent />
-          <Films />
-          <div className="load-more">
-            <Button buttonOnClick={handleClick} buttonText="Load more" />
-          </div>
+      <div className="container">
+        {isLoading && <Loader />}
+        <FilterComponent page={page} />
+        <Films />
+        <div className="load-more">
+          <Button buttonOnClick={handleClick} buttonText="Load more" />
         </div>
-      )}
+      </div>
     </>
   );
 }
