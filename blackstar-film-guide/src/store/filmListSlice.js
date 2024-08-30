@@ -1,7 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   filmList: [],
-  filterFilmList: [],
 };
 const filmListSlice = createSlice({
   name: "film",
@@ -10,11 +9,10 @@ const filmListSlice = createSlice({
     setFilmList: (state, action) => {
       state.filmList = action.payload;
     },
-    addFilmDetailsToList(state, action) {
+    addFilmDetailsToList: (state, action) => {
       state.filmList = [...state.filmList, ...action.payload];
     },
-    filterFilmDetailsByTag(state, action) {
-      state.filterFilmList = action.payload;
+    filterFilmDetailsByTag: (state, action) => {
       state.filmList = action.payload;
     },
     clearFilmList(state) {
