@@ -18,21 +18,7 @@ function Film(props) {
     trailerUrl,
   } = props;
 
-  console.log(
-    typeof (coverImage,
-    title,
-    tags,
-    director,
-    runtime,
-    accessibility,
-    trailer,
-    trailerUrl)
-  );
-
-  console.log("runtime", typeof runtime);
-
   const [isModalOpen, setIsModalOpen] = useState(false);
-
   const handleOpenModal = () => setIsModalOpen(true);
   const handleCloseModal = () => setIsModalOpen(false);
 
