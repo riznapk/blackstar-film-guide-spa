@@ -1,42 +1,11 @@
-import { useLocation } from "react-router-dom";
-import { useEffect, useState } from "react";
 import "./Films.scss";
-import { getFilmData } from "../../../services/filmDetailsService";
-import { useDispatch, useSelector } from "react-redux";
-import { setFilmList } from "../../../store/filmListSlice";
 import Loader from "../../../components/loader/Loader";
 import { extractTrailerUrl } from "../../../utils/utils";
 import Film from "./Film";
+import { useFilms } from "../hooks/useFilms";
 
 function Films() {
-  const location = useLocation();
-
-  const dispatch = useDispatch();
-  const [isLoading, setIsLoading] = useState(false);
-  const filmListDetails = useSelector((state) => state?.filmList?.filmList);
-
-  const getFilmDetails = async (eventiveTag = null) => {
-    setIsLoading(true);
-    try {
-      const data = await getFilmData(18, 1, 2024, eventiveTag);
-      if (data) {
-        setIsLoading(false);
-        dispatch(setFilmList(data));
-      }
-    } catch (err) {
-      console.error(err.message);
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    if (!filmListDetails.length) {
-      const queryParams = new URLSearchParams(location.search);
-      const eventiveTag = queryParams.get("eventive-tag");
-      getFilmDetails(eventiveTag);
-    }
-  }, [location.search]);
+  const { isLoading, filmListDetails } = useFilms();
 
   return (
     <div className="film-container">
