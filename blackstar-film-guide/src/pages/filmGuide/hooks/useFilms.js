@@ -29,7 +29,7 @@ export const useFilms = () => {
     if (!filmListDetails.length) {
       getFilmDetails(eventiveTag);
     }
-  }, [location.search]); //avishyam indo??
+  }, [location.search]);
 
   return { isLoading, filmListDetails };
 };

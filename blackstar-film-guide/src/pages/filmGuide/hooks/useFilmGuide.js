@@ -31,7 +31,7 @@ export const useFilmGuide = () => {
 
   useEffect(() => {
     setEventiveTag(queryParams.get("eventive-tag"));
-  }, [location.search]); //ithu veno
+  }, [location.search]);
 
   return { isLoading, handleClick, setPage };
 };
