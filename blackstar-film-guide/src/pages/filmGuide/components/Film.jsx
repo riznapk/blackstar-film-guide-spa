@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import Button from "../../../components/button/Button";
 import Icon from "../../../components/icon/Icon";
 import "./Film.scss";
@@ -16,6 +17,19 @@ function Film(props) {
     trailer,
     trailerUrl,
   } = props;
+
+  console.log(
+    typeof (coverImage,
+    title,
+    tags,
+    director,
+    runtime,
+    accessibility,
+    trailer,
+    trailerUrl)
+  );
+
+  console.log("runtime", typeof runtime);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
 

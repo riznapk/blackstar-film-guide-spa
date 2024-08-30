@@ -16,7 +16,6 @@ function FilmGuide() {
   const [page, setPage] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
   const [eventiveTag, setEventiveTag] = useState(null);
-  const [filmDataLength, setFilmDataLength] = useState(0);
 
   const handleClick = () => {
     const newPage = page + 1;
@@ -48,7 +47,7 @@ function FilmGuide() {
     <>
       <div className="container">
         {isLoading && <Loader />}
-        <FilterComponent page={page} setPage={setPage} />
+        <FilterComponent setPage={setPage} />
         <Films />
         {filmDetailsList?.length % 18 === 0 && (
           <div className="load-more">

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import PropTypes from "prop-types";
 import "./FilterComponent.scss";
 import filterIcon from "../../../assets/images/filter-icon.png";
 import { categoryList } from "../../../utils/constants";
@@ -11,7 +12,7 @@ import closeIcon from "../../../assets/images/close-button.png";
 import Loader from "../../../components/loader/Loader";
 import { Tooltip } from "@mui/material";
 
-function FilterComponent({ page, setPage }) {
+function FilterComponent({ setPage }) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
@@ -144,5 +145,9 @@ function FilterComponent({ page, setPage }) {
     </>
   );
 }
+
+FilterComponent.propTypes = {
+  setPage: PropTypes.func,
+};
 
 export default FilterComponent;
