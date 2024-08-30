@@ -11,13 +11,13 @@ import { filterFilmDetailsByTag } from "../../../store/filmListSlice";
 import closeIcon from "../../../assets/images/close-button.png";
 import Loader from "../../../components/loader/Loader";
 import { Tooltip } from "@mui/material";
-
 function FilterComponent({ setPage }) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
   const [isAccordionOpen, setAccordionOpen] = useState(false);
   const [selectedCategories, setSelectedCategories] = useState([]);
+  const [filterApplied, setFilterApplied] = useState(false);
 
   //toggle accordion open/close
   const toggleAccordion = () => {
@@ -26,6 +26,7 @@ function FilterComponent({ setPage }) {
 
   //handle checkbox selection
   const handleCheckboxChange = (e) => {
+    setFilterApplied(true);
     const value = e.target.value;
     setSelectedCategories((prevSelected) => {
       if (e.target.checked) {
@@ -61,7 +62,7 @@ function FilterComponent({ setPage }) {
   //side effect to handle the filter selection
   useEffect(() => {
     setPage(1);
-    if (selectedCategories?.length >= 0) {
+    if (selectedCategories?.length >= 0 && filterApplied) {
       getFilmFilterByCategories();
     }
   }, [selectedCategories]);
@@ -70,7 +71,6 @@ function FilterComponent({ setPage }) {
   useEffect(() => {
     const queryParams = new URLSearchParams(location.search);
     const eventiveTag = queryParams.get("eventive-tag");
-
     if (eventiveTag) {
       const categories = decodeURIComponent(eventiveTag).split(",");
       setSelectedCategories(categories);
